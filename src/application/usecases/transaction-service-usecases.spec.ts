@@ -2,9 +2,10 @@ import { TransactionStatus } from "../../domain/enums/transaction-status.enum";
 import { InMemoryTransactionsRepository } from "../../../tests/in-memory-transactions-repository";
 import { TransactionRepositoryInterface } from "../../domain/interfaces/repositories/transaction-repository.interface";
 import { TransactionService } from "../services/transaction.service";
+import { TransactionServiceInterface } from "../interfaces/transaction-service.interface";
 
 describe("Transaction Service Use Case", () => {
-   let transactionService: TransactionService;
+   let transactionService: TransactionServiceInterface;
    let transactionRepository: TransactionRepositoryInterface;
 
    beforeEach(() => {
@@ -24,14 +25,14 @@ describe("Transaction Service Use Case", () => {
    });
 
    it("Should be able to create a new transaction with custom id", async () => {
-        const transaction = await transactionService.createTransaction({
-             senderId: 1,
-             receiverId: 2,
-             amount: 100,
-             id: 10,
-        });
-        expect(transaction.id).toBe(10);
-   })
+      const transaction = await transactionService.createTransaction({
+         senderId: 1,
+         receiverId: 2,
+         amount: 100,
+         id: 10,
+      });
+      expect(transaction.id).toBe(10);
+   });
 
    it("Should be able to throw an error if sender and receiver are the same", async () => {
       try {
@@ -190,7 +191,7 @@ describe("Transaction Service Use Case", () => {
          transaction.id,
          TransactionStatus.COMPLETED
       );
-      expect(updatedTransaction.status).toBe("COMPLETED");
+      expect(updatedTransaction?.status).toBe("COMPLETED");
    });
 
    it("Should be able to throw an error if transaction does not exist", async () => {
