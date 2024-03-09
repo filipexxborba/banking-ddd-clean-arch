@@ -1,0 +1,28 @@
+{
+   "name": "banking-ddd-clean-arch",
+   "version": "1.0.0",
+   "description": "Projeto utilizado no processo seletivo",
+   "main": "index.ts",
+   "scripts": {
+      "test": "jest",
+      "build": "tsc",
+      "prepublish": "npm run build"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/filipexxborba/banking-ddd-clean-arch.git"
+   },
+   "keywords": [
+      "ddd",
+      "clean-arch",
+      "typescript",
+      "node",
+      "express"
+   ],
+   "author": "Filipe Borba",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/filipexxborba/banking-ddd-clean-arch/issues"
+   },
+   "homepage": "https://github.com/filipexxborba/banking-ddd-clean-arch#readme"
+}
