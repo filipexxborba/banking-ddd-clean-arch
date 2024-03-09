@@ -1,0 +1,531 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "v1.0.0",
+    "title": "Mini Bank API",
+    "description": "This is a simple API for a mini bank."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Accounts",
+      "description": "Endpoints"
+    },
+    {
+      "name": "Transactions",
+      "description": "Endpoints"
+    }
+  ],
+  "paths": {
+    "/accounts/": {
+      "post": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Create a new account.",
+        "description": "Endpoint to create a new account.",
+        "responses": {
+          "201": {
+            "description": "Created Successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseCreateAccountSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error to create account",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/genericErrorResponseSchema"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createAccountSchema"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accounts/{id}": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Get account by id.",
+        "description": "Endpoint to get account by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success to get account",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseGetAccountByIdSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error to get account",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/genericErrorResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions/": {
+      "post": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Create a new transaction.",
+        "description": "Endpoint to create a new transaction.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Create Successfully with status SCHEDULED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseCreateTransactionSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error to create transaction",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/genericErrorResponseSchema"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createTransactionSchema"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Get all transactions.",
+        "description": "Endpoint to get all transactions.",
+        "responses": {
+          "200": {
+            "description": "Success to get all transactions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseGetTransactionsListSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error to get transactions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/genericErrorResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions/sender/{id}": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Get all transactions by sender id.",
+        "description": "Endpoint to get all transactions by sender id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success to get all transactions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseGetTransactionsListSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error to get transactions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/genericErrorResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions/receiver/{id}": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Get all transactions by receiver id.",
+        "description": "Endpoint to get all transactions by receiver id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success to get all transactions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseGetTransactionsListSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error to get transactions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/genericErrorResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions/{id}": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Get transaction by id.",
+        "description": "Endpoint to get transaction by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success to get transaction by id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseCreateTransactionSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error to get transaction by id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/genericErrorResponseSchema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Update transaction status by id.",
+        "description": "Endpoint to update transaction status by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success to update transaction status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responseCreateTransactionSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error to update transaction status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/genericErrorResponseSchema"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "createAccountSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "amount": {
+            "type": "number",
+            "example": 100
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "responseCreateAccountSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "amount": {
+            "type": "number",
+            "example": 100
+          }
+        }
+      },
+      "responseGetAccountByIdSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "amount": {
+            "type": "number",
+            "example": 100
+          }
+        }
+      },
+      "createTransactionSchema": {
+        "type": "object",
+        "properties": {
+          "senderId": {
+            "type": "number",
+            "example": 1
+          },
+          "receiverId": {
+            "type": "number",
+            "example": 2
+          },
+          "amount": {
+            "type": "number",
+            "example": 100
+          }
+        },
+        "required": [
+          "senderId",
+          "receiverId",
+          "amount"
+        ]
+      },
+      "saveAccountSchema": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "example": 100
+          }
+        },
+        "required": [
+          "amount"
+        ]
+      },
+      "responseSaveAccountSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "amount": {
+            "type": "number",
+            "example": 100
+          }
+        }
+      },
+      "responseCreateTransactionSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "senderId": {
+            "type": "number",
+            "example": 1
+          },
+          "receiverId": {
+            "type": "number",
+            "example": 2
+          },
+          "amount": {
+            "type": "number",
+            "example": 100
+          },
+          "scheduledDate": {
+            "type": "string",
+            "example": "2022-01-01"
+          },
+          "status": {
+            "type": "string",
+            "example": "SCHEDULED"
+          }
+        }
+      },
+      "responseGetTransactionsListSchema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "example": 1
+            },
+            "senderId": {
+              "type": "number",
+              "example": 1
+            },
+            "receiverId": {
+              "type": "number",
+              "example": 2
+            },
+            "amount": {
+              "type": "number",
+              "example": 100
+            },
+            "scheduledDate": {
+              "type": "string",
+              "example": "2022-01-01"
+            },
+            "status": {
+              "type": "string",
+              "example": "SCHEDULED"
+            }
+          }
+        }
+      },
+      "genericErrorResponseSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "any"
+          }
+        }
+      }
+    }
+  }
+}
