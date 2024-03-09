@@ -5,15 +5,18 @@ import { AccountService } from "../services/account.service";
 import { SchedularService } from "../services/schedular.service";
 import { InMemoryTransactionsRepository } from "../../../tests/in-memory-transactions-repository";
 import { InMemoryAccountsRepository } from "../../../tests/in-memory-accounts-repository";
+import { TransactionServiceInterface } from "../interfaces/transaction-service.interface";
+import { AccountServiceInterface } from "../interfaces/account-service.interface";
+import { SchedularServiceInterface } from "../interfaces/schedular-service.interface";
 
 describe("Schedular Service Use Case", () => {
    let transactionRepository: TransactionRepositoryInterface;
-   let transactionService: TransactionService;
+   let transactionService: TransactionServiceInterface;
 
    let accountRepository: AccountRepositoryInterface;
-   let accountService: AccountService;
+   let accountService: AccountServiceInterface;
 
-   let schedularService: SchedularService;
+   let schedularService: SchedularServiceInterface;
 
    beforeEach(() => {
       transactionRepository = new InMemoryTransactionsRepository();
