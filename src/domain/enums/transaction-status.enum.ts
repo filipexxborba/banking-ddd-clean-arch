@@ -1,0 +1,6 @@
+export enum TransactionStatus {
+   SCHEDULED = "SCHEDULED",
+   COMPLETED = "COMPLETED",
+   NOT_AUTHORIZED = "NOT_AUTHORIZED",
+   CANCELED = "CANCELED",
+}
