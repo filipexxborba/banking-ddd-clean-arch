@@ -1,6 +1,6 @@
 import { Account } from "../../domain/entities/account.entity";
 import { AccountRepositoryInterface } from "../../domain/interfaces/repositories/account-repository.interface";
-import { supabaseData } from "../data/supabase.data";
+import { supabaseData } from "../data/supabase/supabase.data";
 
 export class AccountRepository implements AccountRepositoryInterface {
    createAccount = async (account: Account) => {

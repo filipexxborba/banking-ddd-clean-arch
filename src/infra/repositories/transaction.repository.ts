@@ -1,6 +1,6 @@
 import { Transaction } from "../../domain/entities/transaction.entity";
 import { TransactionRepositoryInterface } from "../../domain/interfaces/repositories/transaction-repository.interface";
-import { supabaseData } from "../data/supabase.data";
+import { supabaseData } from "../data/supabase/supabase.data";
 import { TransactionStatus } from "../../domain/enums/transaction-status.enum";
 
 export class TransactionRepository implements TransactionRepositoryInterface {
