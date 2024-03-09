@@ -1,6 +1,6 @@
 import { Account } from "../entities/account.entity";
 
-describe("Create New Account Domain Use Case", () => {
+describe("Account domain usecases", () => {
    it("Should be able to create a new account with zero balance", () => {
       const sut = new Account("any_name");
       expect(sut.getAmount()).toBe(0);
