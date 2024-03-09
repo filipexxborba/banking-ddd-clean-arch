@@ -17,15 +17,22 @@ export class TransactionService {
    async createTransaction(
       createTransactionDTO: CreateTransactionDTO
    ): Promise<TransactionDTO> {
-      const { senderId, receiverId, amount, scheduledDate, status } =
-         createTransactionDTO;
+      const {
+         senderId,
+         receiverId,
+         amount,
+         scheduledDate,
+         status,
+         id = 1,
+      } = createTransactionDTO;
 
       const transaction = new Transaction(
          senderId,
          receiverId,
          amount,
          scheduledDate ?? new Date(),
-         status
+         status,
+         id
       );
 
       const createdTransaction =
