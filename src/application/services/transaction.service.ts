@@ -4,8 +4,9 @@ import { TransactionRepositoryInterface } from "../../domain/interfaces/reposito
 import { CreateTransactionDTO } from "../dtos/create-transaction.dto";
 import { TransactionRepository } from "../../infra/repositories/transaction.repository";
 import { TransactionDTO } from "../dtos/transaction.dto";
+import { TransactionServiceInterface } from "../interfaces/transaction-service.interface";
 
-export class TransactionService {
+export class TransactionService implements TransactionServiceInterface {
    private readonly transactionRepository: TransactionRepositoryInterface;
 
    constructor(transactionRepository?: TransactionRepositoryInterface) {
