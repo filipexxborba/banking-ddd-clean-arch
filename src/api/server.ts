@@ -1,8 +1,10 @@
 import express from "express";
-import swaggerUi from "swagger-ui-express";
 import accountController from "./controllers/account.controller";
 import transactionController from "./controllers/transaction.controller";
+
+import swaggerUi from "swagger-ui-express";
 import * as swaggerFile from "./swagger_output.json";
+
 import * as dotenv from "dotenv";
 dotenv.config();
 
