@@ -1,0 +1,199 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "v1.0.0",
+    "title": "Mini Bank API",
+    "description": "This is a simple API for a mini bank."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Accounts",
+      "description": "Endpoints"
+    },
+    {
+      "name": "Transactions",
+      "description": "Endpoints"
+    }
+  ],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "createAccountSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "amount": {
+            "type": "number",
+            "example": 100
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "responseCreateAccountSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "amount": {
+            "type": "number",
+            "example": 100
+          }
+        }
+      },
+      "responseGetAccountByIdSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "amount": {
+            "type": "number",
+            "example": 100
+          }
+        }
+      },
+      "createTransactionSchema": {
+        "type": "object",
+        "properties": {
+          "senderId": {
+            "type": "number",
+            "example": 1
+          },
+          "receiverId": {
+            "type": "number",
+            "example": 2
+          },
+          "amount": {
+            "type": "number",
+            "example": 100
+          }
+        },
+        "required": [
+          "senderId",
+          "receiverId",
+          "amount"
+        ]
+      },
+      "saveAccountSchema": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "example": 100
+          }
+        },
+        "required": [
+          "amount"
+        ]
+      },
+      "responseSaveAccountSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "amount": {
+            "type": "number",
+            "example": 100
+          }
+        }
+      },
+      "responseCreateTransactionSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "senderId": {
+            "type": "number",
+            "example": 1
+          },
+          "receiverId": {
+            "type": "number",
+            "example": 2
+          },
+          "amount": {
+            "type": "number",
+            "example": 100
+          },
+          "scheduledDate": {
+            "type": "string",
+            "example": "2022-01-01"
+          },
+          "status": {
+            "type": "string",
+            "example": "SCHEDULED"
+          }
+        }
+      },
+      "responseGetTransactionsListSchema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "example": 1
+            },
+            "senderId": {
+              "type": "number",
+              "example": 1
+            },
+            "receiverId": {
+              "type": "number",
+              "example": 2
+            },
+            "amount": {
+              "type": "number",
+              "example": 100
+            },
+            "scheduledDate": {
+              "type": "string",
+              "example": "2022-01-01"
+            },
+            "status": {
+              "type": "string",
+              "example": "SCHEDULED"
+            }
+          }
+        }
+      },
+      "genericErrorResponseSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "any"
+          }
+        }
+      }
+    }
+  }
+}

@@ -7,7 +7,8 @@
       "test": "jest",
       "build": "tsc",
       "prepublish": "npm run build",
-      "start:express": "ts-node-dev --respawn --transpile-only src/api/server.ts --env-file=.env"
+      "start:express": "ts-node-dev --respawn --transpile-only src/api/server.ts --env-file=.env",
+      "gendoc": "ts-node src/api/swagger.ts"
    },
    "repository": {
       "type": "git",
@@ -31,6 +32,7 @@
       "@types/express": "^4.17.21",
       "@types/jest": "^29.5.12",
       "@types/node": "^20.11.25",
+      "@types/swagger-ui-express": "^4.1.6",
       "dotenv": "^16.4.5",
       "ts-node": "^10.9.2",
       "ts-node-dev": "^2.0.0"
@@ -39,6 +41,8 @@
       "@supabase/supabase-js": "^2.39.7",
       "express": "^4.18.3",
       "jest": "^29.7.0",
+      "swagger-autogen": "^2.23.7",
+      "swagger-ui-express": "^5.0.0",
       "typescript": "^5.4.2"
    }
 }
