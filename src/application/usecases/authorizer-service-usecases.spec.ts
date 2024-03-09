@@ -1,9 +1,10 @@
 import { ExternalAuthorizer } from "../../domain/entities/external-authorizer.entity";
 import { AuthorizerService } from "../services/authorizer.service";
 import { LocalAuthorizer } from "../../../tests/local-authorizer";
+import { AuthorizerServiceInterface } from "../interfaces/authorizer-service.interface";
 
 describe("Authorizer Service Use Case", () => {
-   let authorizerService: AuthorizerService;
+   let authorizerService: AuthorizerServiceInterface;
    let externalAuthorizer: ExternalAuthorizer;
 
    beforeEach(() => {
