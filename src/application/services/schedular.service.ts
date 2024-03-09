@@ -1,14 +1,17 @@
 import { TransactionStatus } from "../../domain/enums/transaction-status.enum";
+import { AccountServiceInterface } from "../interfaces/account-service.interface";
+import { SchedularServiceInterface } from "../interfaces/schedular-service.interface";
+import { TransactionServiceInterface } from "../interfaces/transaction-service.interface";
 import { AccountService } from "./account.service";
 import { TransactionService } from "./transaction.service";
 
-export class SchedularService {
-   private transactionService: TransactionService;
-   private accountService: AccountService;
+export class SchedularService implements SchedularServiceInterface {
+   private transactionService: TransactionServiceInterface;
+   private accountService: AccountServiceInterface;
 
    constructor(
-      accountService?: AccountService,
-      transactionService?: TransactionService
+      accountService?: AccountServiceInterface,
+      transactionService?: TransactionServiceInterface
    ) {
       if (accountService) this.accountService = accountService;
       else this.accountService = new AccountService();
