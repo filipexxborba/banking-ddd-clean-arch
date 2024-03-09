@@ -5,8 +5,9 @@ import { AccountRepositoryInterface } from "../../domain/interfaces/repositories
 import { AccountRepository } from "../../infra/repositories/account.repository";
 import { AccountDTO } from "../dtos/account.dto";
 import { TransferDTO } from "../dtos/transfer.dto";
+import { AccountServiceInterface } from "../interfaces/account-service.interface";
 
-export class AccountService {
+export class AccountService implements AccountServiceInterface {
    private readonly accountRepository: AccountRepositoryInterface;
 
    constructor(accountRepository?: AccountRepositoryInterface) {
