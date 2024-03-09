@@ -1,10 +1,11 @@
 import { AccountRepositoryInterface } from "../../domain/interfaces/repositories/account-repository.interface";
 import { AccountService } from "../services/account.service";
 import { InMemoryAccountsRepository } from "../../../tests/in-memory-accounts-repository";
+import { AccountServiceInterface } from "../interfaces/account-service.interface";
 
 describe("Account service usecases", () => {
    let accountRepository: AccountRepositoryInterface;
-   let accountService: AccountService;
+   let accountService: AccountServiceInterface;
 
    beforeEach(() => {
       accountRepository = new InMemoryAccountsRepository();
