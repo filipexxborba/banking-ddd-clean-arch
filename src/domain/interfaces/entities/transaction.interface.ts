@@ -1,4 +1,4 @@
-import { TransactionStatus } from "../enums/transaction-status.enum";
+import { TransactionStatus } from "../../enums/transaction-status.enum";
 
 export interface TransactionEntity {
    getId: () => number;

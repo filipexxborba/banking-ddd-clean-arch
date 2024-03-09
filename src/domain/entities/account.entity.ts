@@ -1,4 +1,4 @@
-import { AccountEntity } from "../interfaces/account.interface";
+import { AccountEntity } from "../interfaces/entities/account.interface";
 
 export class Account implements AccountEntity {
    private id: number = 1;
