@@ -1,4 +1,4 @@
-import { AuthorizerEntity } from "../../domain/interfaces/authorizer.entity";
+import { AuthorizerEntity } from "../../domain/interfaces/entities/authorizer.entity";
 
 export abstract class Authorizer implements AuthorizerEntity {
    authorize: (

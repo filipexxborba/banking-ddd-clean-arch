@@ -1,5 +1,5 @@
 import { TransactionStatus } from "../enums/transaction-status.enum";
-import { TransactionEntity } from "../interfaces/transaction.interface";
+import { TransactionEntity } from "../interfaces/entities/transaction.interface";
 
 export class Transaction implements TransactionEntity {
    private id: number = 1;
